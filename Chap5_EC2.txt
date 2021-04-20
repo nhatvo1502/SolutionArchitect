@@ -1,2 +1,4 @@
-EC2 tiers:
-    On-demand   
+First EC2 instance
+    Termination Protection is off by default, must turn on  
+    EC2's root drive will be deleted when the instance is terminated
+    EBS Root Volume of default AMI can be encrypted
