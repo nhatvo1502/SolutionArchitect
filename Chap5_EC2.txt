@@ -2,3 +2,15 @@ First EC2 instance
     Termination Protection is off by default, must turn on  
     EC2's root drive will be deleted when the instance is terminated
     EBS Root Volume of default AMI can be encrypted
+
+Security Lab
+    All inbound traffic is blocked by default
+    All outbound traffic is allowed
+    Changes to Security Groups take effect immediately
+    EC2 to Security Group is many-to-many:
+        A Security Group can be added to multiple EC2 instances 
+        An EC2 instance can have more than one Security Group
+    Security Group is STATEFUL: 
+        If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
+    Cannot block IP addresses using Security Group, instead NACL
+    
