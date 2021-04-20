@@ -1,0 +1,66 @@
+Identity and Access Management 101
+
+Billing Alarm
+
+S3
+    What make of the cost:
+        Storage
+        Request and Data retrievals
+        Data transfer
+        Management & Replication
+
+    Pricing Tiers:
+        S3 Standard
+        S3 IA
+        S3 One Zone IA - same as IA without replication
+        S3 Intelligent Tiering - combine Standard with IA + monitoring $.0025 per 1000 objects
+        S3 Glacier
+        S3 Glacier Deep Archive
+
+    Security:
+        Bucket Policies - bucket level
+        Access Control Lists - object level
+        S3 can create log of request made to S3 bucket, can be send/stored 
+            on another bucket in same/another account
+
+    Encryption:
+        Encryption in transit - middle man attack, SSL/TLS
+        Encryption at rest (Server Side) -
+            S3 Managed Keys - SSE-S3
+            AWS Key Management Service - SSE-KMS
+            Customer Provided Keys - SSE-C
+        Encryption at rest (Client Side)
+
+    Versioning 
+        Store all versions as an object (even deleted object)
+        Once enabled, Versioning cannot be disabled, only suspended
+            After suspended, all object versions still there, not deleted
+        Integreates with Lifecycle rules
+        MFA delete
+
+    Lifecycle - 
+        Bucket > Management > Lifecycle
+        Automate moving objects between storage Tiers
+        Apply for current and previous version of the object
+
+    Object Lock
+         WORM - Write Once Read Many
+            prevent object from being deleted or modified for fix amount of time or indefinitely
+        Modes:
+            Gorvenance - lock object for all users except for those who has permission
+            Compliance - lock object for all users no exception for a Retention Period's amount of time
+            Retention Period - protects object version for a fixed time
+            Legal hold - protects object until removed, can be change with S:PutObjectLegalHold
+
+    Glacier Vault Lock - Lock object inside Glacier
+
+    S3 Performance
+        Prefix - path between bucket name and file name
+            \\mybucket\folder1\subfolder1\hello.py      Prefix = \folder1\subfolder1
+            Each prefix handles high number of requests 
+            Spreading read across different prefixes
+        KMS limites
+            Upload/download count toward KMS quota
+            Region specific quota
+            Cannot increase quota
+        S3 byte-range fetches to increase performance when download
