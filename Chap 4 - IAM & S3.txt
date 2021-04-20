@@ -64,3 +64,5 @@ S3
             Region specific quota
             Cannot increase quota
         S3 byte-range fetches to increase performance when download
+
+version 2
