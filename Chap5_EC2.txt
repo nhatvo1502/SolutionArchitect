@@ -49,5 +49,31 @@ EBS Volume migration
 
 AMI Types (EBS and Snapshots)
 
+EC2
+    Web service provides resizable compute capacity in the Cloud
+    Reduces the time to obtain and boot new server (instance) to minutes
+    Scallable 
+    EC2 types:
+        On-demand
+        Reservced
+        Spot
+        Dedicated Hosts
+    EC2 instance types - Mnemonic:
+        FIGHT DR MC PXZ AU - "Fight Doctor Mac Pixzy AU"
+        F - FPGA
+        I - IOPS
+        G - Graphics
+        H - High Disk Throughput
+        T - Cheap general purpose (T2 micro)
+        D - Density
+        R - RAM
+        M - Main choice for general purpose apps
+        C - compute
+        P - Graphics (Pics)
+        X - Extreme memory
+        Z - Extreme memory and compute
+        A - Arm-based workloads
+        U - Bare metal
+
 
     

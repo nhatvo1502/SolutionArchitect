@@ -64,3 +64,61 @@ S3
             Region specific quota
             Cannot increase quota
         S3 byte-range fetches to increase performance when download
+
+Signed URL and Cookies
+    - use when you want to secure content so that only
+        authorized people can access it
+    Cloud Front:
+        - Use if Origin is or isn't S3 (EC2, Route53,etc)
+        - Signed URL - for individual files
+        - Cookies - for multiple files (Netflix, HBO max)
+        - Policy:
+            - URL expiration
+            - IP ranges
+            - Trusted signers (which aws account can create signed URLs)
+    S3:
+        - Use if Origin is on S3
+        - For people who access direct access to S3
+        - Limited life time
+    
+Snowball
+    - petabyte-scale data transport solution 
+    - use secure appliances to transfer in and out aws
+    - simple, fast, secure, cost-effective (1/5 cost of highspeed)
+    How:
+        - comes with 50 or 80TB
+        - Data protection: tamper protection
+    AWS Snowball Edge:
+        - 100TB data transfer device with storage and compute capabilities
+        - remote workloads or offline location
+        - can connect to existing apps/infra
+        - can cluster together
+    AWS Snowmobile:
+        - Exabyte-scale data transfer service (semi-truck with containers of storage)
+        - 100PB per Snowmobile
+
+Storage Gateway
+    - virtual or physical device to connect on-prem data center to AWS
+    Software (Virtual): VMware ESXi, Hyper-V
+    Types:
+        - File Gateway (NFS & SMB): 
+            - Store flat file directly to S3
+        - Volume Gateway (iSCSI): 
+            - Store volume: Store entire data set(volume) on site
+                and asynchronously backup to to S3
+            - Cached volume: Store entire data set (volume) on S3
+                and most frequently accessed data is cached on site
+        - Tape Gateway (VTL): Virtual tape library
+
+Athena
+    - interactive query service run agaisnt S3 to query data
+    - serverless, charge by query, no server setup (like lambda)
+    - commonly used to analyse log data stored in S3
+
+Macie
+    - uses AI to analyze data in S3 to identify PII
+    - used to analyse CloudTrail logs for suspicous API activity
+    - has Dashboards, Reports and Alerting
+    - great for PCI-DSS compliance, ID theft
+    PII: Personally Identifiable Information
+    PCI-DSS: Payment Card Industry - Data Security Standard
