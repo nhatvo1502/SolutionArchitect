@@ -13,4 +13,41 @@ Security Lab
     Security Group is STATEFUL: 
         If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
     Cannot block IP addresses using Security Group, instead NACL
+    CAN allow rules, CANNOT deny rules
+
+EBS 101
+    - Amazone Elastic Block Store (EBS) 
+    - virtual hard disk 
+    - automatically replicate within its AZs
+    - high availability + durability
+    5 flavors:
+            -Name-                          -API_name-      -max_IOPS-      -UseCase-
+        ---------------------------------------------------------------------------------------------------------------
+        - General Purpose (SSD):            gp2             16,000          most workloads
+        - Provisioned IOPS (SSD)            io1             64,000          databse (better than GP)
+        - Throughput Optimized (HDD)        st1             500             big data/warehouse (less IOPS more capacity)
+        - Cold (HDD)                        sc1             250             FileServer
+        - EBS Magnetic (HDD)                standard        40-200          IA workloads
+
+EBS Volume
+    - exist on EBS
+    - will ALWAYS be in the same AZ as the EC2 instance
+    - can be changed on the fly (size:eg. 500GB->1000GB and type:eg. gp2->io1->sc1)
+
+EBS Snapshots
+    - exist on S3 (think of snapshots as a photograph of the disk)
+    - are point in time copies of Volumes
+    - are incremental:
+        - first snapshot takes longer to create (full snapshot)
+        - next snapshot will take less longer (incremental of blocks that have changed since the last snapshot)
+    - can take snapshot while instance is running but best to stop it first
+    - can create AMI from snapshots
+
+EBS Volume migration
+    - to move EC2 volume from one AZ/Region to another
+    How: take a snapshot -> create an AMI from the snapshot -> move the AMI to another AZ/Region -> launch the EC2 from that AMI
+
+AMI Types (EBS and Snapshots)
+
+
     
